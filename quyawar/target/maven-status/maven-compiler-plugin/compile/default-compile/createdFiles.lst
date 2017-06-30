@@ -16,8 +16,8 @@ pe\edu\upc\quyawar\core\dao\HistorialDonacionDao.class
 pe\edu\upc\quyawar\core\dao\impl\SedeSaludDaoImpl.class
 pe\edu\upc\quyawar\core\dao\DonanteDao.class
 pe\edu\upc\quyawar\core\service\SedeSaludService.class
-pe\edu\upc\quyawar\common\Fecha.class
 pe\edu\upc\quyawar\core\service\impl\TipoCatalogoServiceImpl.class
+pe\edu\upc\quyawar\common\Fecha.class
 pe\edu\upc\quyawar\core\service\impl\UsuarioServiceImpl.class
 pe\edu\upc\quyawar\core\service\UsuarioService.class
 pe\edu\upc\quyawar\core\service\impl\CatalogoServiceImpl.class

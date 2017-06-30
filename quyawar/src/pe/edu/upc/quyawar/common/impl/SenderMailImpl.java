@@ -1,7 +1,6 @@
 package pe.edu.upc.quyawar.common.impl;
 
 import java.util.Properties;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -10,8 +9,7 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-import pe.gob.sernanp.ves.common.ISenderMail;
+import pe.edu.upc.quyawar.common.ISenderMail;
 
 public class SenderMailImpl implements ISenderMail {
 	
