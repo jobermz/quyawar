@@ -51,9 +51,7 @@ public class DonanteRestController {
 	
 	@RequestMapping(value = "/donante/", method = RequestMethod.POST)
 	public ResponseEntity<Void> createDonante(@RequestBody Donante donante, UriComponentsBuilder ucBuilder) throws Exception {
-		///System.out.println("Creating Donante " + donante.getStrNombre());
 		if (donanteService.buscarById(donante) != null) {
-			//System.out.println("A Donante with name " + donante.getStrNombre() + " already exist");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 		donanteService.guardar(donante);
