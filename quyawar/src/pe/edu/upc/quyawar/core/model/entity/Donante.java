@@ -21,7 +21,6 @@ import pe.edu.upc.quyawar.core.model.entity.Usuario;
 import pe.edu.upc.quyawar.core.model.entity.Catalogo;
 import pe.edu.upc.quyawar.core.model.entity.Catalogo;
 import pe.edu.upc.quyawar.core.model.entity.Ubigeo;
-	
 
 @Entity
 @Table(name = "t_donante", schema="quyawar")
@@ -29,64 +28,64 @@ public class Donante implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_donante_srl_id_donante_seq")
-	@SequenceGenerator(name="t_donante_srl_id_donante_seq", sequenceName="quyawar.t_donante_srl_id_donante_seq")
-	@Column(name = "srl_id_donante")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_donante_id_donante_seq")
+	@SequenceGenerator(name="t_donante_id_donante_seq", sequenceName="quyawar.t_donante_id_donante_seq")
+	@Column(name = "id_donante")
 	private Integer srlIdDonante;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "srl_id_usuario")
+	@JoinColumn(name = "id_usuario")
 	private Usuario idUsuario;
 	
-	@Column(name = "var_num_dni")
+	@Column(name = "num_dni")
 	private String strNumDni;
 	
-	@Column(name = "var_nombre")
+	@Column(name = "nombre")
 	private String strNombre;
 	
-	@Column(name = "var_appaterno")
+	@Column(name = "appaterno")
 	private String strAppaterno;
 	
-	@Column(name = "var_apmaterno")
+	@Column(name = "apmaterno")
 	private String strApmaterno;
 	
-	@Column(name = "dte_fecha_nacimiento")
+	@Column(name = "fecha_nacimiento")
 	private Date dteFechaNacimiento;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "int_id_estadocivil")
+	@JoinColumn(name = "id_estadocivil")
 	private Catalogo idEstadocivil;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "int_id_sexo")
+	@JoinColumn(name = "id_sexo")
 	private Catalogo idSexo;
 	
-	@Column(name = "var_celular")
+	@Column(name = "celular")
 	private String strCelular;
 	
-	@Column(name = "var_celular2")
+	@Column(name = "celular2")
 	private String strCelular2;
 	
-	@Column(name = "var_telefono")
+	@Column(name = "telefono")
 	private String strTelefono;
 	
-	@Column(name = "var_correo")
+	@Column(name = "correo")
 	private String strCorreo;
 	
-	@Column(name = "var_direccion")
+	@Column(name = "direccion")
 	private String strDireccion;
 	
 	@Column(name = "ind_tipo")
 	private Integer intIndTipo;
 	
-	@Column(name = "int_zoom")
+	@Column(name = "zoom")
 	private Integer intZoom;
 	
-	@Column(name = "int_ubicacion")
+	@Column(name = "ubicacion")
 	private String strUbicacion;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "int_id_ubigeo")
+	@JoinColumn(name = "id_ubigeo")
 	private Ubigeo idUbigeo;
 	
 	public Donante() {}

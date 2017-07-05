@@ -18,7 +18,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.GenerationType;
 
 import pe.edu.upc.quyawar.core.model.entity.Donante;
-	
 
 @Entity
 @Table(name = "t_historial_donacion", schema="quyawar")
@@ -26,19 +25,19 @@ public class HistorialDonacion implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_historial_donacion_srl_id_historialdonacion_seq")
-	@SequenceGenerator(name="t_historial_donacion_srl_id_historialdonacion_seq", sequenceName="quyawar.t_historial_donacion_srl_id_historialdonacion_seq")
-	@Column(name = "srl_id_historialdonacion")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_historial_donacion_id_historialdonacion_seq")
+	@SequenceGenerator(name="t_historial_donacion_id_historialdonacion_seq", sequenceName="quyawar.t_historial_donacion_id_historialdonacion_seq")
+	@Column(name = "id_historialdonacion")
 	private Integer srlIdHistorialdonacion;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "int_id_donante")
+	@JoinColumn(name = "id_donante")
 	private Donante idDonante;
 	
-	@Column(name = "int_unidades")
+	@Column(name = "unidades")
 	private Integer intUnidades;
 	
-	@Column(name = "dte_fecha_donacion")
+	@Column(name = "fecha_donacion")
 	private Date dteFechaDonacion;
 	
 	public HistorialDonacion() {}

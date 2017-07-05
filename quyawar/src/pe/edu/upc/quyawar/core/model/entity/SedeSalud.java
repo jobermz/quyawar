@@ -17,35 +17,33 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.GenerationType;
 
-	
-
 @Entity
 @Table(name = "t_sede_salud", schema="quyawar")
 public class SedeSalud implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_sede_salud_srl_id_sedesalud_seq")
-	@SequenceGenerator(name="t_sede_salud_srl_id_sedesalud_seq", sequenceName="quyawar.t_sede_salud_srl_id_sedesalud_seq")
-	@Column(name = "srl_id_sedesalud")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_sede_salud_id_sedesalud_seq")
+	@SequenceGenerator(name="t_sede_salud_id_sedesalud_seq", sequenceName="quyawar.t_sede_salud_id_sedesalud_seq")
+	@Column(name = "id_sedesalud")
 	private Integer srlIdSedesalud;
 	
-	@Column(name = "var_nombre")
+	@Column(name = "nombre")
 	private String strNombre;
 	
-	@Column(name = "var_direccion")
+	@Column(name = "direccion")
 	private String strDireccion;
 	
-	@Column(name = "var_telefono")
+	@Column(name = "telefono")
 	private String strTelefono;
 	
-	@Column(name = "var_celular")
+	@Column(name = "celular")
 	private String strCelular;
 	
-	@Column(name = "var_ubicacion")
+	@Column(name = "ubicacion")
 	private String strUbicacion;
 	
-	@Column(name = "int_zoom")
+	@Column(name = "zoom")
 	private Integer intZoom;
 	
 	public SedeSalud() {}

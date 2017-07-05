@@ -20,7 +20,6 @@ import javax.persistence.GenerationType;
 import pe.edu.upc.quyawar.core.model.entity.Catalogo;
 import pe.edu.upc.quyawar.core.model.entity.Ubigeo;
 import pe.edu.upc.quyawar.core.model.entity.SedeSalud;
-	
 
 @Entity
 @Table(name = "t_campania", schema="quyawar")
@@ -28,33 +27,33 @@ public class Campania implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_campania_srl_id_campania_seq")
-	@SequenceGenerator(name="t_campania_srl_id_campania_seq", sequenceName="quyawar.t_campania_srl_id_campania_seq")
-	@Column(name = "srl_id_campania")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_campania_id_campania_seq")
+	@SequenceGenerator(name="t_campania_id_campania_seq", sequenceName="quyawar.t_campania_id_campania_seq")
+	@Column(name = "id_campania")
 	private Integer srlIdCampania;
 	
-	@Column(name = "var_descripcion")
+	@Column(name = "descripcion")
 	private String strDescripcion;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "int_id_tipo_sangre")
+	@JoinColumn(name = "id_tipo_sangre")
 	private Catalogo idTipoSangre;
 	
-	@Column(name = "var_ubicacion")
+	@Column(name = "ubicacion")
 	private String strUbicacion;
 	
-	@Column(name = "int_zool")
+	@Column(name = "zool")
 	private Integer intZool;
 	
-	@Column(name = "var_imagen")
+	@Column(name = "imagen")
 	private String strImagen;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "int_id_ubigeo")
+	@JoinColumn(name = "id_ubigeo")
 	private Ubigeo idUbigeo;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "int_id_sedesalud")
+	@JoinColumn(name = "id_sedesalud")
 	private SedeSalud idSedesalud;
 	
 	public Campania() {}

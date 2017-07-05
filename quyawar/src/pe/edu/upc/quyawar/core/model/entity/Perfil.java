@@ -17,20 +17,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.GenerationType;
 
-	
-
 @Entity
 @Table(name = "t_perfil", schema="quyawar")
 public class Perfil implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_perfil_srl_id_perfil_seq")
-	@SequenceGenerator(name="t_perfil_srl_id_perfil_seq", sequenceName="quyawar.t_perfil_srl_id_perfil_seq")
-	@Column(name = "srl_id_perfil")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_perfil_id_perfil_seq")
+	@SequenceGenerator(name="t_perfil_id_perfil_seq", sequenceName="quyawar.t_perfil_id_perfil_seq")
+	@Column(name = "id_perfil")
 	private Integer srlIdPerfil;
 	
-	@Column(name = "var_perfil")
+	@Column(name = "perfil")
 	private String strPerfil;
 	
 	public Perfil() {}

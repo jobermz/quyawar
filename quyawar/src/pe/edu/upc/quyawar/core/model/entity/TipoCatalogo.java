@@ -17,20 +17,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.GenerationType;
 
-	
-
 @Entity
 @Table(name = "t_tipo_catalogo", schema="quyawar")
 public class TipoCatalogo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_tipo_catalogo_int_id_catalogo_seq")
-	@SequenceGenerator(name="t_tipo_catalogo_int_id_catalogo_seq", sequenceName="quyawar.t_tipo_catalogo_int_id_catalogo_seq")
-	@Column(name = "int_id_catalogo")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_tipo_catalogo_id_catalogo_seq")
+	@SequenceGenerator(name="t_tipo_catalogo_id_catalogo_seq", sequenceName="quyawar.t_tipo_catalogo_id_catalogo_seq")
+	@Column(name = "id_catalogo")
 	private Integer srlIdCatalogo;
 	
-	@Column(name = "var_descripcion")
+	@Column(name = "descripcion")
 	private String strDescripcion;
 	
 	public TipoCatalogo() {}

@@ -18,7 +18,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.GenerationType;
 
 import pe.edu.upc.quyawar.core.model.entity.TipoCatalogo;
-	
 
 @Entity
 @Table(name = "t_catalogo", schema="quyawar")
@@ -28,20 +27,20 @@ public class Catalogo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_catalogo_int_id_catalogo_seq")
 	@SequenceGenerator(name="t_catalogo_int_id_catalogo_seq", sequenceName="quyawar.t_catalogo_int_id_catalogo_seq")
-	@Column(name = "int_id_catalogo")
+	@Column(name = "id_catalogo")
 	private Integer srlIdCatalogo;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "int_id_tipo_catalogo")
+	@JoinColumn(name = "id_tipo_catalogo")
 	private TipoCatalogo idTipoCatalogo;
 	
-	@Column(name = "var_descripcion")
+	@Column(name = "descripcion")
 	private String strDescripcion;
 	
-	@Column(name = "var_abreviatura")
+	@Column(name = "abreviatura")
 	private String strAbreviatura;
 	
-	@Column(name = "int_valor")
+	@Column(name = "valor")
 	private Integer intValor;
 	
 	public Catalogo() {}

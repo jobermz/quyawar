@@ -19,7 +19,6 @@ import javax.persistence.GenerationType;
 
 import pe.edu.upc.quyawar.core.model.entity.Perfil;
 import pe.edu.upc.quyawar.core.model.entity.SedeSalud;
-	
 
 @Entity
 @Table(name = "t_usuario", schema="quyawar")
@@ -27,41 +26,41 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_usuario_srl_id_usuario_seq")
-	@SequenceGenerator(name="t_usuario_srl_id_usuario_seq", sequenceName="quyawar.t_usuario_srl_id_usuario_seq")
-	@Column(name = "srl_id_usuario")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_usuario_id_usuario_seq")
+	@SequenceGenerator(name="t_usuario_id_usuario_seq", sequenceName="quyawar.t_usuario_id_usuario_seq")
+	@Column(name = "id_usuario")
 	private Integer srlIdUsuario;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "int_id_perfil")
+	@JoinColumn(name = "id_perfil")
 	private Perfil idPerfil;
 	
-	@Column(name = "var_usuario")
+	@Column(name = "usuario")
 	private String strUsuario;
 	
-	@Column(name = "var_clave_usuario")
+	@Column(name = "clave_usuario")
 	private String strClaveUsuario;
 	
-	@Column(name = "var_nombre_responsable")
+	@Column(name = "nombre_responsable")
 	private String strNombreResponsable;
 	
-	@Column(name = "var_appaterno")
+	@Column(name = "appaterno")
 	private String strAppaterno;
 	
-	@Column(name = "var_apmaterno")
+	@Column(name = "apmaterno")
 	private String strApmaterno;
 	
-	@Column(name = "var_telefono")
+	@Column(name = "telefono")
 	private String strTelefono;
 	
-	@Column(name = "var_correo")
+	@Column(name = "correo")
 	private String strCorreo;
 	
-	@Column(name = "var_celular")
+	@Column(name = "celular")
 	private String strCelular;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "int_id_sedesalud")
+	@JoinColumn(name = "id_sedesalud")
 	private SedeSalud idSedesalud;
 	
 	public Usuario() {}

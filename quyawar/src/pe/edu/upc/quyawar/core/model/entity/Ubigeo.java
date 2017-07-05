@@ -17,29 +17,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.GenerationType;
 
-	
-
 @Entity
 @Table(name = "t_ubigeo", schema="quyawar")
 public class Ubigeo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_ubigeo_int_id_ubigeo_seq")
-	@SequenceGenerator(name="t_ubigeo_int_id_ubigeo_seq", sequenceName="quyawar.t_ubigeo_int_id_ubigeo_seq")
-	@Column(name = "int_id_ubigeo")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_ubigeo_id_ubigeo_seq")
+	@SequenceGenerator(name="t_ubigeo_id_ubigeo_seq", sequenceName="quyawar.t_ubigeo_id_ubigeo_seq")
+	@Column(name = "id_ubigeo")
 	private Integer srlIdUbigeo;
 	
-	@Column(name = "int_id_departamento")
+	@Column(name = "id_departamento")
 	private Integer intIdDepartamento;
 	
-	@Column(name = "int_id_provincia")
+	@Column(name = "id_provincia")
 	private Integer intIdProvincia;
 	
-	@Column(name = "int_id_distrito")
+	@Column(name = "id_distrito")
 	private Integer intIdDistrito;
 	
-	@Column(name = "var_ubigeo")
+	@Column(name = "ubigeo")
 	private String strUbigeo;
 	
 	public Ubigeo() {}
