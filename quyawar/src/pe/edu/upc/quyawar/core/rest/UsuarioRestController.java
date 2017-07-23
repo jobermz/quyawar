@@ -1,6 +1,9 @@
 package pe.edu.upc.quyawar.core.rest;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,9 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import pe.edu.upc.quyawar.common.PaginacionDto;
 import pe.edu.upc.quyawar.core.model.entity.Usuario;
 import pe.edu.upc.quyawar.core.service.UsuarioService;
 
@@ -90,6 +95,25 @@ public class UsuarioRestController {
 
 		usuarioService.eliminar(new Usuario(id));
 		return new ResponseEntity<Usuario>(HttpStatus.NO_CONTENT);
+	}
+
+	@RequestMapping(value = "/usuario/login", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Map<String, String>> getUsuario(@RequestParam String strCorreo, @RequestParam String strPassword) throws Exception {
+		Map<String, String> mapRs	= new HashMap<String, String>();
+		System.out.println("Fetching Usuario with strCorreo: " + strCorreo);
+		Usuario usuario = new Usuario();
+		usuario.setStrCorreo(strCorreo);
+		usuario.setStrClaveUsuario(strPassword);
+		List<Usuario> listUsuario = usuarioService.buscar(usuario, new PaginacionDto());
+		if (listUsuario == null || listUsuario.size() <= 0) {
+			mapRs.put("login", "false");
+			mapRs.put("mensaje", "El nombre de usuario o password no son validos");
+			return new ResponseEntity<Map<String, String>>(mapRs, HttpStatus.OK);
+		} else {
+			System.out.println("Usuario with strCorreo: " + strCorreo + " not found");
+			mapRs.put("login", "true");
+			return new ResponseEntity<Map<String, String>>(mapRs, HttpStatus.OK);
+		}
 	}
 	
 }
