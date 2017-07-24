@@ -33,7 +33,7 @@ public class CatalogoRestController {
 	private CatalogoService catalogoService;
 	
 	@RequestMapping(value = "/catalogo/", method = RequestMethod.GET)
-	public ResponseEntity<List<Catalogo>> listAllCatalogos(@RequestParam Integer idTipoCatalogo) throws Exception {
+	public ResponseEntity<List<Catalogo>> listAllCatalogos(@RequestParam(required=false) Integer idTipoCatalogo) throws Exception {
 		Catalogo catalogoBuscar = new Catalogo();
 		if(idTipoCatalogo != null) {
 			catalogoBuscar.setIdTipoCatalogo(new TipoCatalogo(idTipoCatalogo));

@@ -32,7 +32,7 @@ public class UbigeoRestController {
 	private UbigeoService ubigeoService;
 	
 	@RequestMapping(value = "/ubigeo/", method = RequestMethod.GET)
-	public ResponseEntity<List<Ubigeo>> listAllUbigeos(@RequestParam Integer intIdDepartamento, @RequestParam Integer intIdProvincia, @RequestParam Integer intIdDistrito) throws Exception {
+	public ResponseEntity<List<Ubigeo>> listAllUbigeos(@RequestParam(required=false) Integer intIdDepartamento, @RequestParam(required=false) Integer intIdProvincia, @RequestParam(required=false) Integer intIdDistrito) throws Exception {
 		Ubigeo ubigeoBuscar = new Ubigeo();
 		if(intIdDepartamento != null) {
 			ubigeoBuscar.setIntIdDepartamento(intIdDepartamento);
