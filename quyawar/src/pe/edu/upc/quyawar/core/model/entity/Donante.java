@@ -84,9 +84,16 @@ public class Donante implements Serializable {
 	@Column(name = "ubicacion")
 	private String strUbicacion;
 	
+	@Column(name = "clave_usuario")
+	private String strClaveUsuario;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_ubigeo")
 	private Ubigeo idUbigeo;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_sedesalud")
+	private SedeSalud idSedeSalud;
 	
 	public Donante() {}
 	
@@ -248,5 +255,23 @@ public class Donante implements Serializable {
 		this.strUbicacion = strUbicacion;
 		return this;
 	}
-	
+
+	public String getStrClaveUsuario() {
+		return strClaveUsuario;
 	}
+
+	public Donante setStrClaveUsuario(String strClaveUsuario) {
+		this.strClaveUsuario = strClaveUsuario;
+		return this;
+	}
+
+	public SedeSalud getIdSedeSalud() {
+		return idSedeSalud;
+	}
+
+	public Donante setIdSedeSalud(SedeSalud idSedeSalud) {
+		this.idSedeSalud = idSedeSalud;
+		return this;
+	}
+	
+}

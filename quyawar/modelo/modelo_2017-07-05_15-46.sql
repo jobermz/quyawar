@@ -50,6 +50,7 @@ CREATE TABLE quyawar.t_donante
 	appaterno varchar(300),
 	apmaterno varchar(300),
 	fecha_nacimiento date,
+	clave_usuario varchar(300),
 	id_estadocivil int,
 	id_sexo int,
 	celular varchar(12),
@@ -60,7 +61,8 @@ CREATE TABLE quyawar.t_donante
 	ind_tipo int,
 	zoom int,
 	ubicacion varchar(1000),
-	id_ubigeo int NOT NULL,
+	id_ubigeo int,
+	id_sedesalud int,
 	CONSTRAINT pk_t_donante PRIMARY KEY (id_donante)
 ) WITHOUT OIDS;
 
@@ -176,6 +178,14 @@ ALTER TABLE quyawar.t_usuario
 
 
 ALTER TABLE quyawar.t_campania
+	ADD FOREIGN KEY (id_sedesalud)
+	REFERENCES quyawar.t_sede_salud (id_sedesalud)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE quyawar.t_donante
 	ADD FOREIGN KEY (id_sedesalud)
 	REFERENCES quyawar.t_sede_salud (id_sedesalud)
 	ON UPDATE RESTRICT

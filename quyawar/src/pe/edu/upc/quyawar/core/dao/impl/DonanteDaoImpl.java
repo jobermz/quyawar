@@ -86,7 +86,11 @@ public class DonanteDaoImpl implements DonanteDao {
 			if(donante.getIdUbigeo() != null) {
 				sbHql.append("AND idUbigeo = :idUbigeo ");
 			}
-						Query query		= session.createQuery(sbHql.toString());
+			if(CadenaUtil.getStrNull(donante.getStrClaveUsuario()) != null) {
+				sbHql.append("AND strClaveUsuario like :strClaveUsuario ");
+			}
+			
+			Query query		= session.createQuery(sbHql.toString());
 			if(CadenaUtil.getInteNull(donante.getSrlIdDonante()) != null) {
 				query.setParameter("srlIdDonante", donante.getSrlIdDonante());
 			}
@@ -141,6 +145,10 @@ public class DonanteDaoImpl implements DonanteDao {
 			if(donante.getIdUbigeo() != null) {
 				query.setParameter("idUbigeo", donante.getIdUbigeo());
 			}
+			if(CadenaUtil.getStrNull(donante.getStrClaveUsuario()) != null) {
+				query.setParameter("strClaveUsuario", donante.getStrClaveUsuario());
+			}
+			
 			if (!query.list().isEmpty()) {
 				list	= query.list();
 			} else {
