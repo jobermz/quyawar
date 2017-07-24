@@ -1,6 +1,7 @@
 package pe.edu.upc.quyawar.core.rest;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import pe.edu.upc.quyawar.core.model.entity.Catalogo;
+import pe.edu.upc.quyawar.core.model.entity.TipoCatalogo;
 import pe.edu.upc.quyawar.core.service.CatalogoService;
 
 /**
@@ -30,8 +33,12 @@ public class CatalogoRestController {
 	private CatalogoService catalogoService;
 	
 	@RequestMapping(value = "/catalogo/", method = RequestMethod.GET)
-	public ResponseEntity<List<Catalogo>> listAllCatalogos() throws Exception {
-		List<Catalogo> catalogos = catalogoService.buscar(new Catalogo(), null);
+	public ResponseEntity<List<Catalogo>> listAllCatalogos(@RequestParam Integer idTipoCatalogo) throws Exception {
+		Catalogo catalogoBuscar = new Catalogo();
+		if(idTipoCatalogo != null) {
+			catalogoBuscar.setIdTipoCatalogo(new TipoCatalogo(idTipoCatalogo));
+		}
+		List<Catalogo> catalogos = catalogoService.buscar(catalogoBuscar, null);
 		if (catalogos.isEmpty()) {
 			return new ResponseEntity<List<Catalogo>>(HttpStatus.NO_CONTENT);
 		}

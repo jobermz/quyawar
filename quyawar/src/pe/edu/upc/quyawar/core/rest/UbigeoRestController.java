@@ -1,6 +1,7 @@
 package pe.edu.upc.quyawar.core.rest;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -30,8 +32,18 @@ public class UbigeoRestController {
 	private UbigeoService ubigeoService;
 	
 	@RequestMapping(value = "/ubigeo/", method = RequestMethod.GET)
-	public ResponseEntity<List<Ubigeo>> listAllUbigeos() throws Exception {
-		List<Ubigeo> ubigeos = ubigeoService.buscar(new Ubigeo(), null);
+	public ResponseEntity<List<Ubigeo>> listAllUbigeos(@RequestParam Integer intIdDepartamento, @RequestParam Integer intIdProvincia, @RequestParam Integer intIdDistrito) throws Exception {
+		Ubigeo ubigeoBuscar = new Ubigeo();
+		if(intIdDepartamento != null) {
+			ubigeoBuscar.setIntIdDepartamento(intIdDepartamento);
+		}
+		if(intIdProvincia != null) {
+			ubigeoBuscar.setIntIdProvincia(intIdProvincia);
+		}
+		if(intIdDistrito != null) {
+			ubigeoBuscar.setIntIdDistrito(intIdDistrito);
+		}
+		List<Ubigeo> ubigeos = ubigeoService.buscar(ubigeoBuscar, null);
 		if (ubigeos.isEmpty()) {
 			return new ResponseEntity<List<Ubigeo>>(HttpStatus.NO_CONTENT);
 		}

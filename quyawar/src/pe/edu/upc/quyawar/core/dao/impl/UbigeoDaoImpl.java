@@ -51,7 +51,8 @@ public class UbigeoDaoImpl implements UbigeoDao {
 					sbHql.append("AND strUbigeo like :strUbigeo ");
 				}
 			}
-						Query query		= session.createQuery(sbHql.toString());
+			
+			Query query		= session.createQuery(sbHql.toString());
 			if(CadenaUtil.getInteNull(ubigeo.getSrlIdUbigeo()) != null) {
 				query.setParameter("srlIdUbigeo", ubigeo.getSrlIdUbigeo());
 			}
