@@ -35,13 +35,13 @@ public class UbigeoDaoImpl implements UbigeoDao {
 			if(CadenaUtil.getInteNull(ubigeo.getSrlIdUbigeo()) != null) {
 				sbHql.append("AND srlIdUbigeo = :srlIdUbigeo ");
 			}
-			if(CadenaUtil.getInteNull(ubigeo.getIntIdDepartamento()) != null) {
+			if((ubigeo.getIntIdDepartamento()) != null) {
 				sbHql.append("AND intIdDepartamento = :intIdDepartamento ");
 			}
-			if(CadenaUtil.getInteNull(ubigeo.getIntIdProvincia()) != null) {
+			if((ubigeo.getIntIdProvincia()) != null) {
 				sbHql.append("AND intIdProvincia = :intIdProvincia ");
 			}
-			if(CadenaUtil.getInteNull(ubigeo.getIntIdDistrito()) != null) {
+			if((ubigeo.getIntIdDistrito()) != null) {
 				sbHql.append("AND intIdDistrito = :intIdDistrito ");
 			}
 			if(CadenaUtil.getStrNull(ubigeo.getStrUbigeo()) != null) {
@@ -56,13 +56,13 @@ public class UbigeoDaoImpl implements UbigeoDao {
 			if(CadenaUtil.getInteNull(ubigeo.getSrlIdUbigeo()) != null) {
 				query.setParameter("srlIdUbigeo", ubigeo.getSrlIdUbigeo());
 			}
-			if(CadenaUtil.getInteNull(ubigeo.getIntIdDepartamento()) != null) {
+			if((ubigeo.getIntIdDepartamento()) != null) {
 				query.setParameter("intIdDepartamento", ubigeo.getIntIdDepartamento());
 			}
-			if(CadenaUtil.getInteNull(ubigeo.getIntIdProvincia()) != null) {
+			if((ubigeo.getIntIdProvincia()) != null) {
 				query.setParameter("intIdProvincia", ubigeo.getIntIdProvincia());
 			}
-			if(CadenaUtil.getInteNull(ubigeo.getIntIdDistrito()) != null) {
+			if((ubigeo.getIntIdDistrito()) != null) {
 				query.setParameter("intIdDistrito", ubigeo.getIntIdDistrito());
 			}
 			if(CadenaUtil.getStrNull(ubigeo.getStrUbigeo()) != null) {
