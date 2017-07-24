@@ -25,8 +25,6 @@ public class Catalogo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="t_catalogo_int_id_catalogo_seq")
-	@SequenceGenerator(name="t_catalogo_int_id_catalogo_seq", sequenceName="quyawar.t_catalogo_int_id_catalogo_seq")
 	@Column(name = "id_catalogo")
 	private Integer srlIdCatalogo;
 	
